@@ -1,0 +1,49 @@
+.menu a{
+    display: block ;
+    font-size: 20px ;
+    list-style-type: none ;
+    font-weight: bold ;
+    color: white ;
+    text-decoration: none ;
+    margin: 0.5rem; 
+    
+    
+    
+}
+
+.menu {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: flex-start;
+    margin:0;
+    padding: 0;
+    background-color: gray ;
+    
+}
+
+html, body{
+    margin:0;
+    padding: 0;
+}
+
+header{
+    display: flex ;
+    justify-content: center ;
+    color: white ;
+    background-color: orange ;
+    
+    
+}
+
+
+.menu li:hover {
+    background-color: white;
+    
+    
+}
+
+.menu li:hover a{
+    color: red ;
+    
+    
+}
