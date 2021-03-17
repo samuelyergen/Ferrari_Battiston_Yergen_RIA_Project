@@ -1,0 +1,64 @@
+.menu a{
+    display: block ;
+    font-size: 20px ;
+    list-style-type: none ;
+    font-weight: bold ;
+    color: white ;
+    text-decoration: none ;
+    margin: 0.5rem; 
+    
+    
+    
+}
+
+.menu {
+    display: flex ;
+    flex-direction: row ;
+    justify-content: flex-start;
+    margin:0;
+    padding: 0;
+    background-color: grey;
+    
+}
+
+.orangeColor {
+    height: 25px;
+    background: linear-gradient(darkorange, orange);
+}
+
+
+html, body{
+    margin:0;
+    padding: 0;
+}
+
+header{
+    display: flex ;
+    justify-content: center ;
+    color: white ;
+    height: 60px;
+    background-color: orange;  
+}
+
+.titre {
+    margin: 50px;
+    border-bottom: 1px;
+    border-bottom-style:solid
+}
+
+
+.menu li:hover {
+    background-color: white;
+    
+    
+}
+
+.menu li:hover a{
+    color: darkorange;
+    
+    
+}
+
+.para p{
+    margin-left: 50px;
+}
