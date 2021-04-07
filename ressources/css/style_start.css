@@ -24,6 +24,8 @@
     margin:0;
     padding: 0;
     background-color: grey;
+    margin-bottom: 50px ;
+    margin-left: 30px ;
     
 }
 
@@ -32,15 +34,7 @@ html, body{
     padding: 0;
 }
 
-head{
-    display: flex ;
-    justify-content: center ;
-    color: white ;
-    height: 60px;
-    background-color: orange;  
-}
-
-title{
+header.head_title {
     background-color: orange ;
 }
 
@@ -66,12 +60,36 @@ title{
      
 }
 
-header h2{
-    border-bottom: 1px;
-    border-bottom-style:solid
-}
+
 
 header p{
-    flex-direction: row ;
-    justify-content: flex-end ;
+   margin-top: 0px;
+    margin-left: 1370px;
+    
+    
 }
+
+header h2{
+    margin-left: 30px ;
+    margin-right: 300px ;
+    margin-bottom: 5px ;
+    border-bottom: 1px ;
+    border-bottom-style: solid ;
+}
+
+p {
+    margin-left: 30px ;
+    margin-right: 300px ;
+}
+
+footer{
+    margin-left: 1340px ;
+}
+
+.title{
+    text-align: center ;
+    background-color: orange ;
+    
+}
+
+
