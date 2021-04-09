@@ -34,9 +34,6 @@ html, body{
     padding: 0;
 }
 
-header.head_title {
-    background-color: orange ;
-}
 
 .active {
     background-color: white ;
@@ -86,10 +83,15 @@ footer{
     margin-left: 1340px ;
 }
 
-.title{
+#title{
     text-align: center ;
-    background-color: orange ;
+    background-image: url(../images/photo-1520942702018-0862200e6873.webp) 0 0 repeat-x ;
     
 }
+
+.box{
+    
+}
+
 
 
