@@ -5,7 +5,7 @@
     background-color: skyblue ;
 }
 
-/*navigation menu*/
+/*start navigation menu*/
 
 nav ul{
     list-style-type: none ;
@@ -103,4 +103,17 @@ header h2{
 p {
     margin-left: 30px ;
     margin-right: 300px ;
+}
+
+/*journal de bord*/
+
+#tab{
+    
+    width: 50% ;
+    margin: 0 auto ;
+    margin-bottom: 30px ;
+}
+
+th, td{
+    border: 1px solid black ;
 }
