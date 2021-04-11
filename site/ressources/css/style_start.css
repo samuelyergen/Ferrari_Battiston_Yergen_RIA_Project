@@ -45,6 +45,11 @@ nav a:hover{
     border-bottom: 2px solid gold ;
 }
 
+.active{
+    background-color: gold ;
+    color: gold ;
+}
+
 /*@media screen and (max-width: 768px){
     
 .hamburger{
