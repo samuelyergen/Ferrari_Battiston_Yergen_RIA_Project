@@ -97,12 +97,41 @@ header h2{
     margin-right: 300px ;
     margin-bottom: 5px ;
     border-bottom: 1px ;
-    border-bottom-style: solid ;
+
 }
 
-p {
-    margin-left: 30px ;
-    margin-right: 300px ;
+
+
+footer {
+   
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+article{
+    margin: auto ;
+    width: 80%;
+}
+
+
+/* équipe*/
+aside {
+    width: 30%;
+    padding: 20px;
+    min-width: 360px;
+}
+
+aside > ul > li {
+    margin: 10px;
+}
+
+aside div {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding-bottom: 5px;
 }
 
 /*journal de bord*/
