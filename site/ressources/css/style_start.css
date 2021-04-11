@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+* {
+    box-sizing: border-box;
+    background-color: skyblue ;
+}
+
+/*navigation menu*/
+
+nav ul{
+    list-style-type: none ;
+}
+
+nav li{
+    display: inline-block;
+    width: 19% ;
+    text-align: center ;
+}
+
+nav ul::after{
+    content: "";
+    display: table ;
+    clear: both ;
+}
+
+nav{
+    width: 100 ;
+    margin: 0 auto ;
+    position: sticky ;
+    top: 0px ;
+    margin-bottom: 50px;
+}
+
+nav a{
+    display: block;
+    text-decoration: none ;
+    color: green ;
+    font-weight: bold ;
+    border-bottom: 2px solid transparent ;
+    padding : 10px 0px ;
+}
+
+nav a:hover{
+    color: orange ;
+    border-bottom: 2px solid gold ;
+}
+
+/*@media screen and (max-width: 768px){
+    
+.hamburger{
+    display: inline-block; 
+    padding: 10px;
+    } 
+    
+.active{
+        display: none ;
+    }
+    
+}*/
+
+.hamburger{
+    display: none ;
+}
+
+/*end navigation menu*/
+
+/* title */
+
+#title{
+    text-align: center ;
+    background-image: url(../images/sand.jpg);
+    padding-bottom: 30px ;
+    padding-top: 30px ;
+    margin-top: 0px ;
+}
+
+html, body{
+    margin:0;
+    padding: 0;
+}
+
+footer{
+    float: right ;
+    margin-right: 300px ;
+}
+
+header p{
+   margin-top: 0px;
+    margin-left: 1370px;
+    margin-bottom: 30px ;
+    
+    
+}
+
+header h2{
+    margin-left: 30px ;
+    margin-right: 300px ;
+    margin-bottom: 5px ;
+    border-bottom: 1px ;
+    border-bottom-style: solid ;
+}
+
+p {
+    margin-left: 30px ;
+    margin-right: 300px ;
+}
