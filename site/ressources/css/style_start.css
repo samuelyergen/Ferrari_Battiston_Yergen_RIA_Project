@@ -98,6 +98,10 @@ nav a{
     background-color: white;
 }
 
+.active a {
+    color: #c0392b;
+}
+
 /*end navigation menu*/
 
 
