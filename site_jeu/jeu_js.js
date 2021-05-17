@@ -4,6 +4,7 @@ canvas.width = 900;
 canvas.height = 600;
 
 
+
 //Global variables
 const cellSize = 100;
 const cellGap = 3;
@@ -19,6 +20,7 @@ let gameOver = false;
 let score = 0;
 const projectiles = [];
 const ressources = [];
+let chosenDefender = 1 ;
 
 
 //mouse
@@ -27,7 +29,14 @@ const mouse = {
     y: 10,
     width: 0.1,
     height: 0.1,
+    clicked : false 
 }
+canvas.addEventListener('mousedown', function(){
+    mouse.clicked = true ;
+});
+canvas.addEventListener('mouseup', function(){
+    mouse.clicked = false ;
+});
 let canvasPosition = canvas.getBoundingClientRect();
 console.log(canvasPosition);
 canvas.addEventListener('mousemove', function(e){
@@ -40,6 +49,9 @@ canvas.addEventListener('mouseleave', function(){
 });
 
 //Game board
+const field = new Image();
+field.src = "./ressources/sand.jpg";
+
 const controlsBar = {
     width: canvas.width,
     height: cellSize,
@@ -50,12 +62,15 @@ class Cell {
         this.y = y;
         this.width = cellSize;
         this.height = cellSize;
+        this.spriteWidth = 1340 ;
+        this.spriteHeight = 1000 ;
     }
     draw() {
         if(mouse.x && mouse.y && collision(this, mouse)){
             ctx.strokeStyle = 'black';
             ctx.strokeRect(this.x, this.y, this.width, this.height);
-        } 
+        }
+        ctx.drawImage(field,0,0);
     }
 }
 function createGrid(){
@@ -111,7 +126,14 @@ function handleProjectiles(){
     }
 }
 
-//defneders
+//defenders
+const defender1 = new Image();
+defender1.src = './ressources/anubis.png';
+const defender2 = new Image();
+defender2.src = './ressources/nefertiti.png';
+
+
+
 class Defender {
     constructor(x,y) {
         this.x = x;
@@ -122,13 +144,22 @@ class Defender {
         this.health = 100;
         this.projectiles = [];
         this.timer = 0;
+        this.spriteWidth = 512 ;
+        this.spriteHeight = 512 ;
+        this.chosenDefender = chosenDefender ;
     }
     draw(){
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        //ctx.fillStyle = 'blue';
+        //ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = 'gold';
         ctx.font = '20px Arial';
         ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 20);
+        if(this.chosenDefender === 1){
+            ctx.drawImage(defender1, 0,0,this.spriteWidth,this.spriteHeight,this.x,this.y,this.width,this.height);
+        }else if(this.chosenDefender === 2){
+            ctx.drawImage(defender2, 0,0,this.spriteWidth,this.spriteHeight,this.x,this.y,this.width,this.height);
+        }
+        
     }
     update(){
         if (this.shooting) { 
@@ -178,7 +209,63 @@ function handleDefenders(){
     }
 }
 
+const card1 = {
+    x : 10 ,
+    y : 10 ,
+    width : 70,
+    height : 85 
+}
+const card2 = {
+    x : 90 ,
+    y : 10 ,
+    width : 70,
+    height : 85 
+}
+
+function chooseDefender(){
+    let card1stroke = 'black';
+    let card2stroke = 'black';
+    if(collision(mouse,card1) && mouse.clicked){
+        chosenDefender = 1 ;
+    }else if(collision(mouse,card2) && mouse.clicked){
+        chosenDefender = 2 ;
+    }
+    
+    if(chosenDefender === 1){
+        card1stroke = 'gold';
+        card2stroke = 'black';
+    }else if(chosenDefender === 2){
+         card1stroke = 'black';
+        card2stroke = 'gold';
+    }else{
+         card1stroke = 'black';
+        card2stroke = 'black';
+    }
+    
+    ctx.lineWidth = 1 ;
+    //ctx.fillStyle = 'rgba(0,0,0,0.5)'; 
+    ctx.fillRect(card1.x, card1.y, card1.width, card1.height);
+    ctx.strokeStyle = card1stroke ;
+    ctx.strokeRect(card1.x, card1.y, card1.width, card1.height);
+    ctx.drawImage(defender1,0,0,512,512,5,10,165/2,170/2);
+    ctx.fillRect(card2.x, card2.y, card2.width, card2.height);
+    ctx.drawImage(defender2,0,0,512,512,80,10,165/2,170/2);
+    ctx.strokeStyle = card2stroke ;
+    ctx.strokeRect(card2.x, card2.y, card2.width, card2.height);
+}
+
+
 //enemies
+const enemyTypes = [];
+const enemy1 = new Image();
+enemy1.src = "./ressources/snake.png" ;
+enemyTypes.push(enemy1);
+const enemy2 = new Image();
+enemy2.src = "./ressources/scarab.png";
+enemyTypes.push(enemy2);
+
+
+
 class Enemy{
     constructor(verticalPosition){
         this.x = canvas.width;
@@ -189,16 +276,22 @@ class Enemy{
         this.movement = this.speed;
         this.health = 100;
         this.maxHealth = this.health;
+        this.enemyType = enemyTypes[Math.floor(Math.random() * enemyTypes.length)] ;
+        this.spriteWidth = 512 ;
+        this.spriteHeight = 512 ;
     }
     update() {
         this.x -= this.movement;
     }
     draw(){
-        ctx.fillStyle= 'red';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        //ctx.fillStyle= 'red';
+        //ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.fillStyle = 'black';
         ctx.font = '20px Arial';
         ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 20);
+        //ctx.drawImage(img, sx,sy,sw,sh,dx,dy,dw,dh);
+        ctx.drawImage(this.enemyType, 0,0,this.spriteWidth,this.spriteHeight,this.x,this.y,this.width,this.height);
+
     }
 }
 
@@ -227,6 +320,15 @@ function handleEnemies(){
     }
 }
 //ressources
+const resourceTypes = [];
+const resource1 = new Image();
+resource1.src = "./ressources/lotus.png" ;
+resourceTypes.push(resource1);
+const resource2 = new Image();
+resource2.src = "./ressources/pipe.png";
+resourceTypes.push(resource2);
+
+
 const amounts = [20, 30, 40];
 class Ressource{
     constructor(){
@@ -235,13 +337,17 @@ class Ressource{
         this.width = cellSize * 0.6;
         this.height = cellSize * 0.6;
         this.amount = amounts[Math.floor(Math.random() * amounts.length)];
+        this.resourceType = resourceTypes[Math.floor(Math.random() * resourceTypes.length)] ;
+        this.spriteWidth = 512 ;
+        this.spriteHeight = 512 ;
     }
     draw(){
-    ctx.fillStyle = 'yellow';
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    //ctx.fillStyle = 'yellow';
+    //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
     ctx.fillText(this.amount, this.x + 15, this.y + 25);
+    ctx.drawImage(this.resourceType, 0,0,this.spriteWidth,this.spriteHeight,this.x,this.y,this.width,this.height);
     }
 }
 function handleRessources(){
@@ -260,18 +366,18 @@ function handleRessources(){
 
 //utilities
 function handleGameStatus(){
-    ctx.fillStyle = 'gold';
-    ctx.font = '30px Arial';
-    ctx.fillText('Score: ' + score, 20, 40);
-    ctx.fillText('Resources: ' + numberOfRessources, 20, 80);
+    ctx.fillStyle = 'black';
+    ctx.font = '30px Papyrus';
+    ctx.fillText('Score: ' + score, 180, 40);
+    ctx.fillText('Resources: ' + numberOfRessources, 180, 80);
     if (gameOver) {
         ctx.fillStyle = 'black';
-        ctx.font = '80px Arial';
+        ctx.font = '80px Papyrus';
         ctx.fillText('Game Over', 150, 330);
     }
     if (score > winningScore && enemies.length === 0) {
         ctx.fillStyle = 'black';
-        ctx.font = '60px Arial';
+        ctx.font = '60px Papyrus';
         ctx.fillText('Level complete', 130, 300);
         ctx.font = '30px Arial';
         ctx.fillText('You win with ' + score  + ' points !', 134, 340);
@@ -286,6 +392,7 @@ function animate(){
     handleRessources();
     handleProjectiles();
     handleEnemies();
+    chooseDefender();
     handleGameStatus();
     frame++;
     if (!gameOver) requestAnimationFrame(animate);
