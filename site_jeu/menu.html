@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_jeu.css">
+    <link rel="shortcut icon" href="#">
+    <script src="menu.js" defer></script>
+    <title>Start menu</title>
+</head>
+<body>
+    <div id="titre">
+        <h1>La malédiction d'Ankh</h1>
+    </div>
+    <div id="block">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <h2>Votre pseudo:</h2>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <div>
+                        <input id="playerName" placeholder="Pseudo" maxlength="10">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <h2>Votre avatar:</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="containers">
+                        <div class="draggable" id="male" draggable="true">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="containers">
+                        <div class="draggable" id="female" draggable="true">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <h2>Votre choix: </h2>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <div class="containers" id="playerAvatar">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>    
+</body>
+</html>

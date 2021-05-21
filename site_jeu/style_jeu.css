@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
 
-
-
 body{
     background-image: url(ressources/MicrosoftTeams-image.png) ;
     background-size: cover;
+    display: flex;
 }
 
 h1 {
@@ -15,10 +14,57 @@ h1 {
     font-size: 50px ;
 }
 
-canvas {
+h2 {
+    font-family: papyrus ;
+    display: flex ;
+    justify-content: center ;
+    color: black ;
+    font-size: 25px ;
+}
 
+.containers {
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    border: solid 3px black;
+    background: white;
+}
+
+.draggable {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    top: 5px;
+    left: 5px;
+    cursor: move;
+}
+
+#male {
+    background-image: url(./ressources/male.png);
+}
+
+#female {
+    background-image: url(./ressources/female.png);
+}
+
+.draggable.dragging {
+    opacity: .5;
+}
+
+.rectangle {
     position: absolute;
-    top: 55%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 600px;
+    background-color: white;
+}
+
+canvas {
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 900px;
