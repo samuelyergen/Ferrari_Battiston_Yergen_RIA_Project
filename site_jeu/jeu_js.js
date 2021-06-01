@@ -412,3 +412,11 @@ function collision(first, second){
 window.addEventListener('resize', function(){
     canvasPosition = canvas.getBoundingClientRect();
 })
+
+//musique
+let music = new Audio("./ressources/Chiraz-Wisper.mp3");
+music.loop = true ;
+music.volume = 0.3 ;
+music.play();
+
+
