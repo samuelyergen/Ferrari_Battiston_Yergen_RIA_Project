@@ -3,15 +3,19 @@
 body{
     background-image: url(ressources/MicrosoftTeams-image.png) ;
     background-size: cover;
-    display: flex;
+    margin: 0;
+}
+
+.content{
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
     font-family: papyrus ;
-    display: flex ;
-    justify-content: center ;
     color: sandybrown ;
-    font-size: 50px ;
+    font-size: 48px ;
 }
 
 h2 {
@@ -64,7 +68,7 @@ h2 {
 
 canvas {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 900px;

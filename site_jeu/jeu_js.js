@@ -12,7 +12,7 @@ const gameGrid = [];
 const defenders = [];
 const enemies = [];
 const enemyPositions = [];
-const winningScore = 50;
+//const winningScore = 50;
 let numberOfRessources = 300;
 let enemiesInterval =  600;
 let frame = 0;
@@ -312,7 +312,7 @@ function handleEnemies(){
             i--;
         }
     }
-    if(frame % enemiesInterval === 0 && score < winningScore){
+    if(frame % enemiesInterval === 0 /*&& score < winningScore*/){
         let verticalPosition = Math.floor(Math.random() * 5 + 1) * cellSize + cellGap;
         enemies.push(new Enemy(verticalPosition));
         enemyPositions.push(verticalPosition);
@@ -351,7 +351,7 @@ class Ressource{
     }
 }
 function handleRessources(){
-    if (frame % 500 === 0 && score < winningScore) {
+    if (frame % 500 === 0 /*&& score < winningScore*/) {
         ressources.push(new Ressource());
     }
     for(let i=0; i < ressources.length; i++){
@@ -375,13 +375,13 @@ function handleGameStatus(){
         ctx.font = '80px Papyrus';
         ctx.fillText('Game Over', 150, 330);
     }
-    if (score > winningScore && enemies.length === 0) {
-        ctx.fillStyle = 'black';
-        ctx.font = '60px Papyrus';
-        ctx.fillText('Level complete', 130, 300);
-        ctx.font = '30px Arial';
-        ctx.fillText('You win with ' + score  + ' points !', 134, 340);
-    }
+    // if (score > winningScore && enemies.length === 0) {
+    //     ctx.fillStyle = 'black';
+    //     ctx.font = '60px Papyrus';
+    //     ctx.fillText('Level complete', 130, 300);
+    //     ctx.font = '30px Arial';
+    //     ctx.fillText('You win with ' + score  + ' points !', 134, 340);
+    // }
 }
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
