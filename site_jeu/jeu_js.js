@@ -87,23 +87,25 @@ function handleGameGrid(){
     }
 }
 //projectiles
+const imgProjectile = new Image();
+imgProjectile.src = './ressources/gemme.png'
+
 class Projectile{
     constructor(x, y){
         this.x = x;
         this.y = y;
-        this.width =10;
-        this.height = 10;
+        this.width =20;
+        this.height = 20;
         this.power = 20;
         this.speed = 10;
+	this.spriteWidth = 20 ;
+        this.spriteHeight = 20 ;
     }
     update(){
         this.x += this.speed;
     }
     draw(){
-        ctx.fillStyle = 'black';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.width, 0, Math.PI *2);
-        ctx.fill();
+        ctx.drawImage(imgProjectile,0,0,this.spriteWidth,this.spriteHeight,this.x,this.y,this.width,this.height);
     }
 }
 function handleProjectiles(){
