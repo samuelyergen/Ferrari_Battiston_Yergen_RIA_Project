@@ -35,4 +35,3 @@ navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 
 
-

@@ -11,56 +11,25 @@
 </head>
 <body>
     <div class="content">
-    <div id="titre">
-        <h1>La malédiction d'Ankh</h1>
-    </div>
-    <div id="block">
-        <table>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <h2>Votre pseudo:</h2>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <div>
-                        <input id="playerName" placeholder="Pseudo" maxlength="10">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <h2>Votre avatar:</h2>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="containers">
-                        <div class="draggable" id="male" draggable="true">
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="containers">
-                        <div class="draggable" id="female" draggable="true">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <h2>Votre choix: </h2>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <div class="containers" id="playerAvatar">
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-<input type="button" onclick="window.location.href='geoloc.html'" value="Next">
+            <h1>La malédiction d'Ankh</h1>
+            <h2>Votre pseudo:</h2>
+            <div>
+                <input id="playerName" placeholder="Pseudo" maxlength="10">                </div>
+                <h2>Votre avatar:</h2>
+                <div class="containers">
+                    <div class="draggable" id="male" draggable="true"></div>
+                </div>
+                <div class="containers">
+                    <div class="draggable" id="female" draggable="true"></div>
+                </div> 
+                <h2>Votre choix: </h2>
+                <div class="containers" id="playerAvatar">    </div>
+        <form action="geoloc.html">
+            <input class="button" type="submit" value="Valider" onclick="passValues();">
+        </form>
+    <footer>
+        <p>Battiston Arnaud - Ferrari Bastien - Yergen Samuel</p>
+    </footer>
     </div>   
 </body>
 </html>

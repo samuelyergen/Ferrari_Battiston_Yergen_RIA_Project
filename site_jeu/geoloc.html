@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="geoloc.css">
+    <link rel="stylesheet" href="style_jeu.css">
      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
@@ -13,14 +13,16 @@
 </head>
     
 <body>
-   <h1>La malédiction d'Ankh</h1>
+  <div class="content">
+    <h1>La malédiction d'Ankh</h1>
     
-     <div id="mapid"></div>
-    
+    <div id="mapid"></div>
    
-    <script type="text/javascript" src="geoloc.js"></script> 
-    <input type="button" onclick="window.location.href='site_jeu.html'" value="Play">
-   
+   <form action="site_jeu.html">
+     <input class="button" type="submit"  value="Play">
+   </form>
+  </div>
+  <script type="text/javascript" src="geoloc.js"></script> 
 </body>
 
 
