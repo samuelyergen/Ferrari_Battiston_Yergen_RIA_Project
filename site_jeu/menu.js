@@ -27,3 +27,9 @@ function startMusic(){
     musictheme.play()
     musictheme.loop = true
 }
+
+function passValues() {
+    var username = document.getElementById('playerName').value;
+    localStorage.setItem("username", username);
+    return false;
+}

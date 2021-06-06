@@ -12,6 +12,7 @@ const gameGrid = [];
 const defenders = [];
 const enemies = [];
 const enemyPositions = [];
+const NO_OF_HIGH_SCORES = 10;
 //const winningScore = 50;
 let numberOfRessources = 300;
 let enemiesInterval =  600;
@@ -21,7 +22,6 @@ let score = 0;
 const projectiles = [];
 const ressources = [];
 let chosenDefender = 1 ;
-
 
 //mouse
 const mouse = {
@@ -51,6 +51,8 @@ canvas.addEventListener('mouseleave', function(){
 //Game board
 const field = new Image();
 field.src = "./ressources/sand.jpg";
+
+showHighScores();
 
 const controlsBar = {
     width: canvas.width,
@@ -376,6 +378,7 @@ function handleGameStatus(){
         ctx.fillStyle = 'black';
         ctx.font = '80px Papyrus';
         ctx.fillText('Game Over', 150, 330);
+        checkHighScore(score);
     }
     // if (score > winningScore && enemies.length === 0) {
     //     ctx.fillStyle = 'black';
@@ -401,6 +404,7 @@ function animate(){
 }
 animate();
 
+
 function collision(first, second){
     if (    !( first.x > second.x + second.width ||
             first.x + first.width < second.x ||
@@ -422,3 +426,32 @@ music.volume = 0.3 ;
 music.play();
 
 
+//score
+function showHighScores(){
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    const highScoreList = document.getElementById('highScores');
+
+    highScoreList.innerHTML = highScores
+    .map((score) => `<li>${score.score} - ${score.name}`)
+    .join('');
+}
+
+function checkHighScore(score) {
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.scoreFinal ?? 0;
+    
+    if (score > lowestScore) {
+     const name = localStorage.getItem("username");
+     const newScore = {score, name};
+      saveHighScore(newScore, highScores); 
+      showHighScores(); 
+    }
+  }
+
+  function saveHighScore(score, highScores) {
+      highScores.push(score);
+      highScores.sort((a, b) => b.score -a.score);
+      highScores.splice(NO_OF_HIGH_SCORES);
+
+      localStorage.setItem('highScores', JSON.stringify(highScores));
+  }

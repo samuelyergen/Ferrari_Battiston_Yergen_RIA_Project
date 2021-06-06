@@ -7,23 +7,30 @@ body{
 }
 
 .content{
-    max-width: 500px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 h1 {
     font-family: papyrus ;
     color: sandybrown ;
-    font-size: 48px ;
+    font-size: 40px ;
+
 }
 
 h2 {
     font-family: papyrus ;
     display: flex ;
     justify-content: center ;
-    color: black ;
+    color: sandybrown;
     font-size: 25px ;
+}
+
+p{
+    font-family: papyrus;
+    color: sandybrown;
 }
 
 .containers {
@@ -43,6 +50,9 @@ h2 {
     left: 5px;
     cursor: move;
 }
+#block{
+    display: block;
+}
 
 #male {
     background-image: url(./ressources/male.png);
@@ -56,22 +66,44 @@ h2 {
     opacity: .5;
 }
 
-.rectangle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    height: 600px;
-    background-color: white;
+
+.button {
+    border: none;
+    text-decoration: none;
+    font-family: papyrus;
+    background-color: sandybrown;
+    padding: 10px 20px;
+    margin: 10px auto;
+    display: block;
+}
+
+#mapid { 
+    margin: auto;
+    height: 400px;
+     width: 900px;
 }
 
 canvas {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
     width: 900px;
     height: 600px;
     background-color: white;
+    margin: 5px;
+
+}
+
+.score{
+    float: right;
+    width: 25%;
+
+}
+
+.jeu{
+    float: left;
+    width: 75%;
+}
+
+li {
+    font-family: papyrus;
+    color: sandybrown;
 }
