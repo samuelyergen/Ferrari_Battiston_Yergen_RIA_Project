@@ -432,7 +432,7 @@ function showHighScores(){
     const highScoreList = document.getElementById('highScores');
 
     highScoreList.innerHTML = highScores
-    .map((score) => `<li>${score.score} - ${score.name}`)
+    .map((score) => `<li>${score.name} - ${score.score}`)
     .join('');
 }
 
@@ -455,3 +455,12 @@ function checkHighScore(score) {
 
       localStorage.setItem('highScores', JSON.stringify(highScores));
   }
+
+  document.getElementById("restart").onclick = function () {
+      location.href = "site_jeu.html";
+  };
+
+  document.getElementById("change").onclick = function () {
+    location.href = "menu.html";
+};
+
