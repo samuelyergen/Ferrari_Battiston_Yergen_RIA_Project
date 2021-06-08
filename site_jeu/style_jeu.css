@@ -28,11 +28,6 @@ h2 {
     font-size: 25px ;
 }
 
-p{
-    font-family: papyrus;
-    color: sandybrown;
-}
-
 .containers {
     display: inline-block;
     height: 160px;
@@ -84,23 +79,9 @@ p{
 }
 
 canvas {
-    display: block;
-    width: 900px;
+     width: 900px;
     height: 600px;
     background-color: white;
-    margin: 5px;
-
-}
-
-.score{
-    float: right;
-    width: 25%;
-
-}
-
-.jeu{
-    float: left;
-    width: 75%;
 }
 
 li {
