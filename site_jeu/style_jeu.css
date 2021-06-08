@@ -24,7 +24,7 @@ h2 {
     font-family: papyrus ;
     display: flex ;
     justify-content: center ;
-    color: sandybrown;
+    color: black;
     font-size: 25px ;
 }
 
@@ -86,5 +86,5 @@ canvas {
 
 li {
     font-family: papyrus;
-    color: sandybrown;
+    color: black;
 }
