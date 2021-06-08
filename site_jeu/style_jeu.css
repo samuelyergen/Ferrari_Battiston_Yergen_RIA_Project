@@ -79,7 +79,7 @@ h2 {
 }
 
 canvas {
-     width: 900px;
+    width: 900px;
     height: 600px;
     background-color: white;
 }
@@ -88,3 +88,6 @@ li {
     font-family: papyrus;
     color: black;
 }
+ ol {
+     padding: 0px;
+ }
